@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redistribuicao-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: redistribuicao
+  template:
+    metadata:
+      labels:
+        app: redistribuicao
+    spec:
+      containers:
+      - name: redistribuicao
+        image: tatitata/redistribuicao:v1
+        ports:
+        - containerPort: 8080  # Exemplo de porta; ajuste conforme necessário
