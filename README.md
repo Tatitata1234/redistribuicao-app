@@ -29,7 +29,7 @@ Certifique-se de ter instalado:
   npm install
 ## Executando a aplicação
 
-##Para iniciar a aplicação localmente, execute:
+Para iniciar a aplicação localmente, execute:
 
 npm start
 
