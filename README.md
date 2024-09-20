@@ -27,4 +27,9 @@ Certifique-se de ter instalado:
 2. Instale as dependências:
   cd redistribuicao-app
   npm install
+## Executando a aplicação
+
+##Para iniciar a aplicação localmente, execute:
+
+npm start
 
