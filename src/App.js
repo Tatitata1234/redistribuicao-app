@@ -3,69 +3,107 @@ import { useState } from 'react'
 import { useHttp } from './use-http.hook'
 
 function App() {
-  const [text, setText] = useState('')
-  const [response, setResponse] = useState([{
-    nome: '',
-    classificacao: '',
-    utilidade: '',
-    investimento: 0,
-    arrecadado: 0,
-    total: 1,
-    mensagem: '',
-    quitada: false
-  }])
-  const httpInstance = useHttp('https://www.tatitata.com.br')
+  const [valor, setValor] = useState('')
+  const [usuario, setUsuario] = useState('')
+  const [response, setResponse] = useState(null)
+  const httpInstance = useHttp('https://www.tatitata.com.br', { "usuario": usuario })
 
-  function handleTextChange(event) {
+  function handleValorChange(event) {
     const text = event.target.value
 
-    setText(text)
+    setValor(text)
   }
 
+  function handleUsuarioChange(event) {
+    const text = event.target.value
+
+    setUsuario(text)
+  }
 
   async function handleRegistrar(event) {
     event.preventDefault()
-    const response = await httpInstance.get('caixinhas/configDefault?investimento=' + text)
-    console.log(response)
+    const response = await httpInstance.get('redistribuir?investimento=' + valor)
     setResponse(response)
+  }
+
+  function formatarMoeda(valor) {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valor);
+  }
+
+  function showMensagem(r) {
+    if (r.mensagem !== "") {
+
+      return (
+        <p className={`css-${r.quitada} valor`}>
+          {`${r.mensagem}`}
+        </p>
+      )
+    }
+    else {
+      return
+    }
+  }
+
+  function showCaixinhas() {
+    if (response === null) {
+      return (
+        <p></p>
+      )
+    }
+    if (response.length > 0) {
+      return (
+        <div className='caixinhas'>{response.map(r => {
+          return (
+            <div key={r.nome} className='caixinha' >
+              <p className={`css-${r.quitada} titulo`}>
+                {`${r.nome}`}</p>
+              <p className={`css-${r.quitada} valor`}>
+                {`Depositar: ${formatarMoeda(r.investimento.toFixed(2))}`}</p>
+              <p className={`css-${r.quitada} valor`}>
+                {`Total: ${formatarMoeda(r.total)}`}</p>
+              {showMensagem(r)}
+              <p className={`css-${r.quitada} valor`}>
+                {`Porcentagem pós deposito: ${((r.arrecadado + r.investimento) / r.total * 100).toFixed(2)}%`}</p>
+            </div>
+          )
+        })}</div>
+      )
+    } else {
+      return (
+        <div className='caixinhas'>
+          <p className='css-false'>
+            Não tem nenhuma caixinha para esse usuário
+          </p>
+        </div>
+      )
+    }
   }
 
   return (
     <div className="App">
       <form className='form'>
-        <p className='header'>Digite o valor que deseja investir</p>
+        <p className='header'>Digite o id do usuário:</p>
+        <input
+          name="user"
+          value={usuario}
+          placeholder="1"
+          onChange={handleUsuarioChange}
+        />
+        <p className='header'>Digite o valor que deseja investir:</p>
         <input
           name="query"
-          value={text}
+          value={valor}
           placeholder="Ex. 1000"
-          onChange={handleTextChange}
+          onChange={handleValorChange}
         />
         <button type="submit"
           onClick={handleRegistrar}
         >Calcular</button>
       </form>
-      <div className='caixinhas'>{response.map(r => {
-        return (
-          <div key={r.nome} className='caixinha' >
-            <p className={`css-${r.quitada} titulo`}>
-              {`${r.nome}`}</p>
-            <p className={`css-${r.quitada} valor`}>
-              {`Depositar: R$ ${r.investimento.toFixed(2)}`}</p>
-            <p className={`css-${r.quitada} valor`}>
-              {`Total: R$ ${r.total}`}</p>
-            <p className={`css-${r.quitada} mensagem`}>
-              {`${r.mensagem}`}</p>
-            <p className={`css-${r.quitada} valor`}>
-              {`Porcentagem pós deposito: ${((r.arrecadado + r.investimento) / r.total * 100).toFixed(2)}%`}</p>
-          </div>
-        )
-        // ${r.total} 
-        // ${r.arrecadado} 
-        // ${r.classificacao} 
-        // ${r.utilidade} 
-      })}</div>
+      {showCaixinhas()}
+
     </div>
-  );
+  )
 }
 
 export default App;

@@ -47,6 +47,7 @@
 .css-false{
   color: rgb(49, 49, 47);
   font-weight: bold;
+  margin: 16px;
 }
 .caixinhas{
   display:flex;
