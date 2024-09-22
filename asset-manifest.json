@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/redistribuicao/static/css/main.0e227b56.css",
-    "main.js": "/redistribuicao/static/js/main.8e01a78d.js",
-    "static/js/453.6412964f.chunk.js": "/redistribuicao/static/js/453.6412964f.chunk.js",
-    "index.html": "/redistribuicao/index.html",
-    "main.0e227b56.css.map": "/redistribuicao/static/css/main.0e227b56.css.map",
-    "main.8e01a78d.js.map": "/redistribuicao/static/js/main.8e01a78d.js.map",
-    "453.6412964f.chunk.js.map": "/redistribuicao/static/js/453.6412964f.chunk.js.map"
+    "main.css": "/redistribuicao-app/static/css/main.0e227b56.css",
+    "main.js": "/redistribuicao-app/static/js/main.3d0be253.js",
+    "static/js/453.6412964f.chunk.js": "/redistribuicao-app/static/js/453.6412964f.chunk.js",
+    "index.html": "/redistribuicao-app/index.html",
+    "main.0e227b56.css.map": "/redistribuicao-app/static/css/main.0e227b56.css.map",
+    "main.3d0be253.js.map": "/redistribuicao-app/static/js/main.3d0be253.js.map",
+    "453.6412964f.chunk.js.map": "/redistribuicao-app/static/js/453.6412964f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0e227b56.css",
-    "static/js/main.8e01a78d.js"
+    "static/js/main.3d0be253.js"
   ]
 }
