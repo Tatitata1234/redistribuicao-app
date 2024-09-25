@@ -18,7 +18,7 @@ export function App() {
   return (
     <div className="App">
       <Routes>
-        <Login path='/'/>
+        <Login path='/redistribuicao-app/'/>
         {console.log("dentro da div")}
         <PrivateRoute>
           <Redistribuicao path="/redistribuicao"/>
