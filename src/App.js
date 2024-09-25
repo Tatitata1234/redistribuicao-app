@@ -7,7 +7,7 @@ export default function App() {
   return (
     <div className="container">
       <Routes>
-        <Route path={'/'} element={<Login />} />
+        <Route path={'/redistribuicao-app'} element={<Login />} />
 
         <Route path={'/redistribuicao'} element={
             <Redistribuicao />
