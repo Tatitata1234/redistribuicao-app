@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/redistribuicao-app/static/css/main.fd726861.css",
-    "main.js": "/redistribuicao-app/static/js/main.bc6c2e41.js",
+    "main.js": "/redistribuicao-app/static/js/main.ef0ff970.js",
     "static/js/453.6412964f.chunk.js": "/redistribuicao-app/static/js/453.6412964f.chunk.js",
     "index.html": "/redistribuicao-app/index.html",
     "main.fd726861.css.map": "/redistribuicao-app/static/css/main.fd726861.css.map",
-    "main.bc6c2e41.js.map": "/redistribuicao-app/static/js/main.bc6c2e41.js.map",
+    "main.ef0ff970.js.map": "/redistribuicao-app/static/js/main.ef0ff970.js.map",
     "453.6412964f.chunk.js.map": "/redistribuicao-app/static/js/453.6412964f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fd726861.css",
-    "static/js/main.bc6c2e41.js"
+    "static/js/main.ef0ff970.js"
   ]
 }
